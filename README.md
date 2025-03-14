@@ -23,7 +23,9 @@ Você pode conferir o primeiro projeto teste, desenvolvido com **WordPress**, ac
 
 ## Como Rodar o Projeto
 
-1. Clone este repositório:
+Disponível em breve..
+
+<!-- 1. Clone este repositório:
 
    ```bash
    git clone https://github.com/seu-usuario/cepin-cis.git
@@ -44,7 +46,7 @@ Você pode conferir o primeiro projeto teste, desenvolvido com **WordPress**, ac
    npm start
    ```
 
-5. Acesse o projeto em `http://localhost:3000`.
+5. Acesse o projeto em `http://localhost:3000`. -->
 
 ## Contribuindo
 
