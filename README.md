@@ -1,6 +1,6 @@
 # CEPIN-CIS
 
-O **CEPIN-CIS** é o segundo projeto teste da equipe, desenvolvido com foco em praticar e aprimorar o uso de tecnologias modernas de desenvolvimento web. Este projeto utiliza **Node.js**, **MySQL**, **HTML**, **CSS**, **JavaScript** e outras ferramentas para criar uma aplicação web robusta e funcional.
+O **CEPIN-CIS** é o segundo projeto teste, desenvolvido com foco em praticar e aprimorar o uso de tecnologias modernas de desenvolvimento web. Este projeto utiliza **Node.js**, **MySQL**, **HTML**, **CSS**, **JavaScript** e outras ferramentas.
 
 ## Tecnologias utilizadas
 
@@ -9,7 +9,7 @@ O **CEPIN-CIS** é o segundo projeto teste da equipe, desenvolvido com foco em p
 - **HTML**: Linguagem de marcação para a construção da estrutura da aplicação.
 - **CSS**: Estilos visuais para criar uma interface atraente e responsiva.
 - **JavaScript**: Linguagem de programação para interatividade no frontend.
-- **Outras**: [Adicione outras ferramentas e bibliotecas utilizadas, como Express, Sequelize, etc.]
+<!-- - **Outras**: [Adicione outras ferramentas e bibliotecas utilizadas, como Express, Sequelize, etc.] -->
 
 ## Objetivo
 
