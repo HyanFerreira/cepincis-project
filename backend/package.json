@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Projeto CEPIN-CIS - Segunda versão teste",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyanFerreira/cepincis-project.git"
+  },
+  "keywords": [
+    "CEPIN-CIS"
+  ],
+  "author": "Hyan Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HyanFerreira/cepincis-project/issues"
+  },
+  "homepage": "https://github.com/HyanFerreira/cepincis-project#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0",
+    "nodemon": "^3.1.9"
+  }
+}
