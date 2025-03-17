@@ -32,6 +32,10 @@ app.get("/home", (_, res) => {
   res.sendFile(path.resolve("public/index.html")); // Serve o index.html da pasta public
 });
 
+app.get("/login", (_, res) => {
+  res.sendFile(path.resolve("public/views/login.html"));
+});
+
 // Usar a rota para listar usuários
 app.use(userRoutes);
 
