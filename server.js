@@ -2,44 +2,51 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
-import "./src/config/db.js"; // Importando o banco de dados para executar a conexão
+import livereload from "livereload";
+import connectLivereload from "connect-livereload";
+import "./src/config/db.js";
 
-// Importações referente aos usuários
-import userRoutes from "./src/routes/userRoutes.js"; // Importe as rotas de usuários
+// Importação das rotas
+import userRoutes from "./src/routes/userRoutes.js";
+import postRoutes from "./src/routes/postRoutes.js";
 
-// Importações referente as postagens
-import postRoutes from "./src/routes/postRoutes.js"; // Importe as rotas de postagens
-
-dotenv.config(); // Carrega as variáveis do .env
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Configuração do LiveReload
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(path.resolve("public"));
+app.use(connectLivereload());
+
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+
 // Middlewares
-app.use(cors()); // Libera acesso para diferentes origens
-app.use(express.json()); // Permite receber JSON no corpo das requisições
+app.use(cors());
+app.use(express.json());
 
 // Servir arquivos estáticos
-app.use(express.static(path.resolve("public"))); // Serve os arquivos estáticos da pasta public
+app.use(express.static(path.resolve("public")));
 
 // Rota inicial
-app.get("/", (_, res) => {
-  res.send("API está rodando!");
-});
+app.get("/", (_, res) => res.send("API está rodando!"));
 
 // Definir as rotas do frontend
 app.get("/home", (_, res) => {
-  res.sendFile(path.resolve("public/index.html")); // Serve o index.html da pasta public
+  res.sendFile(path.resolve("public/index.html"));
 });
 
 app.get("/login", (_, res) => {
   res.sendFile(path.resolve("public/views/login.html"));
 });
 
-// Usar a rota para listar usuários
+// Usar rotas da API
 app.use(userRoutes);
-
-// Usar a rota para listar postagens
 app.use(postRoutes);
 
 // Iniciar servidor
