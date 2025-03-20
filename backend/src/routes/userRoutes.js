@@ -10,18 +10,18 @@ import {
 const router = express.Router();
 
 // Rota para listar todos os usuários
-router.get("/users", listUsers);
+router.get("/", listUsers);
 
 // Rota para listar um usuário específico
-router.get("/users/user/:id", getUser);
+router.get("/user/:id", getUser);
 
 // Rota para criar um novo usuário
-router.post("/users/create-user", createUserController);
+router.post("/create-user", createUserController);
 
 // Rota para atualizar um usuário
-router.put("/users/update-user/:id", updateUserController);
+router.put("/update-user/:id", updateUserController);
 
 // Rota para deletar um usuário
-router.delete("/users/delete-user/:id", deleteUserController);
+router.delete("/delete-user/:id", deleteUserController);
 
 export default router;

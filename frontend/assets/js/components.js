@@ -1,5 +1,5 @@
 function loadComponent(componentName) {
-  fetch(`/components/${componentName}.html`)
+  fetch(`/frontend/components/${componentName}.html`)
     .then(response => response.text())
     .then(data => {
       document.getElementById(componentName).innerHTML = data;
