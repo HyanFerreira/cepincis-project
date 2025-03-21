@@ -17,7 +17,41 @@
 
     <main class="page page--contact">
         <div class="container">
-            
+            <div class="content text--dark">
+                <button class="btn__addPost" id="btnAddPost"><ion-icon class="ion-icon f--20"
+                        name="add-outline"></ion-icon> Nova Postagem</button>
+                <div class="posts__ListAdmin" id="postsListAdmin">
+
+                </div>
+                <div class="modal__edit" id="modalEdit">
+                    <div class="container__edit">
+                        <div class="content__edit">
+                            <div class="edit__top flex--between">
+                                <h1 class="f--20">Editar Postagem</h1>
+                                <button class="btn__closeModalEdit" id="btnCloseModalEdit"><ion-icon
+                                        class="ion-icon f--20" name="close-outline"></ion-icon></button>
+                            </div>
+                            <div class="edit__bottom">
+                                <form class="form__editPost" id="formEditPost">
+                                    <div class="block__input">
+                                        <label for="editTitulo">Título:</label>
+                                        <input type="text" id="editTitulo" name="titulo" required>
+                                    </div>
+                                    <div class="block__input">
+                                        <label for="editDescricao">Descrição:</label>
+                                        <textarea id="editDescricao" name="descricao" required></textarea>
+                                    </div>
+                                    <div class="block__input">
+                                        <label for="editDescricao">Conteúdo:</label>
+                                        <textarea id="editConteudo" name="conteudo" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn__savePost">Salvar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -26,9 +60,10 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../assets/js/api.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <!-- <script src="../assets/js/main.js"></script> -->
     <script src="../assets/js/components.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/admin.js"></script>
 </body>
 
 </html>
