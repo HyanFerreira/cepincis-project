@@ -374,7 +374,7 @@ p {
 
 .posts__ListAdmin {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 30px;
 }
 
@@ -417,7 +417,10 @@ p {
     color: var(--color-light);
 }
 
-.modal__edit {
+/* Modal Edit & Add POSTS */
+
+.modal__edit,
+.modal__add {
     position: absolute;
     top: 0;
     left: 0;
@@ -430,11 +433,13 @@ p {
     justify-content: center;
 }
 
-.modal__edit.active {
+.modal__edit.active,
+.modal__add.active {
     display: flex;
 }
 
-.container__edit {
+.container__edit,
+.container__add {
     width: 80%;
     max-width: 600px;
     height: 80%;
@@ -443,7 +448,8 @@ p {
     border-radius: 5px;
 }
 
-.content__edit {
+.content__edit,
+.content__add {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -451,11 +457,13 @@ p {
     padding: 20px;
 }
 
-.edit__top {
+.edit__top,
+.add__top {
     align-items: center;
 }
 
 .btn__closeModalEdit,
+.btn__closeModalAdd,
 .btn {
     display: flex;
     align-items: center;
@@ -469,24 +477,28 @@ p {
 }
 
 .btn__closeModalEdit:hover,
+.btn__closeModalAdd:hover,
 .btn:hover {
     background-color: var(--color-dark);
     color: var(--color-light);
 }
 
-.edit__bottom {
+.edit__bottom,
+.add__bottom {
     height: 100%;
     overflow: auto;
 }
 
-.form__editPost {
+.form__editPost,
+.form__addPost {
     display: flex;
     flex-direction: column;
     height: 100%;
     gap: 20px;
 }
 
-.btn__savePost {
+.btn__savePost,
+.btn__addPostSubmit {
     margin-top: auto;
 }
 
@@ -508,18 +520,58 @@ p {
     outline: none;
 }
 
-#editDescricao {
+#editDescricao,
+#addDescricao {
     height: 100px;
     max-height: 100px;
     resize: none;
     overflow: hidden;
 }
 
-#editConteudo {
-    height: 300px;
-    max-height: 300px;
+#editConteudo,
+#addConteudo {
+    height: 220px;
+    max-height: 220px;
     resize: none;
     /* overflow: hidden; */
+}
+
+.block__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox__tag {
+    padding: 8px 0px;
+}
+
+.checkbox__tag input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilo normal */
+.checkbox__tag label {
+    padding: 6px 10px;
+    border: 1px solid var(--color-dark);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+
+/* Alterar o fundo e a borda quando o checkbox for marcado */
+.checkbox__tag input[type="checkbox"]:checked+label {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+/* Estilo ao passar o mouse por cima da tag */
+.checkbox__tag label:hover {
+    background-color: var(--color-dark);
+}
+
+.checkbox__tag label:hover {
+    color: var(--color-light);
 }
 
 /* Media Query */

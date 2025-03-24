@@ -23,6 +23,59 @@
                 <div class="posts__ListAdmin" id="postsListAdmin">
 
                 </div>
+                <div class="modal__add" id="modalAdd">
+                    <div class="container__add">
+                        <div class="content__add">
+                            <div class="add__top flex--between">
+                                <h1 class="f--20">Adicionar Postagem</h1>
+                                <button class="btn__closeModalAdd" id="btnCloseModalAdd"><ion-icon
+                                        class="ion-icon f--20" name="close-outline"></ion-icon></button>
+                            </div>
+                            <div class="add__bottom">
+                                <form class="form__addPost" id="formAddPost">
+                                    <div class="block__input">
+                                        <label for="addTitulo">Título:</label>
+                                        <input type="text" id="addTitulo" name="titulo" required>
+                                    </div>
+                                    <div class="block__input">
+                                        <label for="addDescricao">Descrição:</label>
+                                        <textarea id="addDescricao" name="descricao" required></textarea>
+                                    </div>
+                                    <div class="block__input">
+                                        <label for="addDescricao">Conteúdo:</label>
+                                        <textarea id="addConteudo" name="conteudo" required></textarea>
+                                    </div>
+                                    <div class="block__input">
+                                        <label>Áreas Temáticas:</label>
+                                        <div class="block__checkbox">
+                                            <div class="checkbox__tag">
+                                                <input type="checkbox" id="IoT" name="tags" value="IoT">
+                                                <label for="IoT">IoT</label>
+                                            </div>
+                                            <div class="checkbox__tag">
+                                                <input type="checkbox" id="CarbonZero" name="tags" value="CarbonZero">
+                                                <label for="CarbonZero">CarbonZero</label>
+                                            </div>
+                                            <div class="checkbox__tag">
+                                                <input type="checkbox" id="UrbSmart" name="tags" value="UrbSmart">
+                                                <label for="UrbSmart">UrbSmart</label>
+                                            </div>
+                                            <div class="checkbox__tag">
+                                                <input type="checkbox" id="EcoMat" name="tags" value="EcoMat">
+                                                <label for="EcoMat">EcoMat</label>
+                                            </div>
+                                            <div class="checkbox__tag">
+                                                <input type="checkbox" id="EduCIS" name="tags" value="EduCIS">
+                                                <label for="EduCIS">EduCIS</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn__addPostSubmit">Adicionar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="modal__edit" id="modalEdit">
                     <div class="container__edit">
                         <div class="content__edit">
