@@ -53,15 +53,16 @@ export const getPost = async (req, res) => {
 
 // Controlador para criar uma nova postagem
 export const createPostController = async (req, res) => {
-  const { titulo, descricao, conteudo, data_publicacao } = req.body;
+  const { titulo, descricao, conteudo, tags, data_publicacao } = req.body;
   try {
-    if (!titulo || !descricao || !conteudo || !data_publicacao) {
+    if (!titulo || !descricao || !conteudo || !tags || !data_publicacao) {
       return res.status(400).json({ message: "Dados incompletos" });
     }
     const newPostId = await createPost({
       titulo,
       descricao,
       conteudo,
+      tags,
       data_publicacao
     });
     res
@@ -75,13 +76,18 @@ export const createPostController = async (req, res) => {
 // Controlador para atualizar uma postagem
 export const updatePostController = async (req, res) => {
   const { id } = req.params;
-  const { titulo, descricao, conteudo } = req.body;
+  const { titulo, descricao, conteudo, tags } = req.body;
   try {
-    if (!titulo || !descricao || !conteudo) {
+    if (!titulo || !descricao || !conteudo || !tags) {
       return res.status(400).json({ message: "Dados incompletos" });
     }
 
-    const updatedPost = await updatePost(id, { titulo, descricao, conteudo });
+    const updatedPost = await updatePost(id, {
+      titulo,
+      descricao,
+      conteudo,
+      tags
+    });
     res
       .status(200)
       .json({ message: "Postagem atualizada com sucesso", updatedPost });

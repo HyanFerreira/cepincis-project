@@ -421,7 +421,7 @@ p {
 
 .modal__edit,
 .modal__add {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
