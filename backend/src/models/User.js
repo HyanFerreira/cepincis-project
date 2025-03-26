@@ -1,4 +1,14 @@
 import connection from "../config/db.js";
+import bcryptjs from "bcryptjs"; // Certifique-se de importar o bcryptjs
+
+export const getUserByEmail = async email => {
+  const [
+    rows
+  ] = await connection.execute("SELECT * FROM usuarios WHERE email = ?", [
+    email
+  ]);
+  return rows[0]; // Retorna o usuário encontrado ou undefined
+};
 
 // Função para listar todos os usuários
 export const getAllUsers = async () => {
@@ -17,12 +27,15 @@ export const getUserById = async id => {
 // Função para criar um novo usuário
 export const createUser = async user => {
   const { nome, email, senha } = user;
-  const [
-    result
-  ] = await connection.execute(
+
+  // Criptografar a senha antes de armazenar
+  const senhaCriptografada = await bcryptjs.hash(senha, 10); // 10 é o número de saltos (quanto maior, mais seguro)
+
+  const [result] = await connection.execute(
     "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
-    [nome, email, senha]
+    [nome, email, senhaCriptografada] // Armazenando a senha criptografada
   );
+
   return result.insertId; // Retorna o ID do novo usuário inserido
 };
 

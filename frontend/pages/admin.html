@@ -12,16 +12,19 @@
     <title>Administrador - CEPIN-CIS</title>
 </head>
 
-<body>
+<body id="admin">
     <div id="header"></div>
 
-    <main class="page page--contact">
+    <main class="page page--admin">
         <div class="container">
             <div class="content text--dark">
+                <div class="block__logout">
+                    <ion-icon class="arrow ion-icon f--26 text--light" name="chevron-back-outline"></ion-icon>
+                    <button class="btn btn__logout" id="btnLogout">sair</button>
+                </div>
                 <button class="btn__addPost" id="btnAddPost"><ion-icon class="ion-icon f--20"
                         name="add-outline"></ion-icon> Nova Postagem</button>
                 <div class="posts__ListAdmin" id="postsListAdmin">
-
                 </div>
                 <div class="modal__add" id="modalAdd">
                     <div class="container__add">

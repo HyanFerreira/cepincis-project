@@ -1,4 +1,63 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  // Função para decodificar o JWT e verificar sua validade
+  function decodeJWT(token) {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map(function(c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  }
+
+  // Verificar se o token existe no localStorage
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    // Se não houver token, redireciona para a página de login
+    window.location.href = "login.html";
+    return;
+  }
+
+  try {
+    const decodedToken = decodeJWT(token);
+
+    // Verificar se o token ainda é válido (não expirou)
+    const currentTime = Date.now() / 1000; // Em segundos
+    if (decodedToken.exp < currentTime) {
+      // Se o token expirou, redireciona para a página de login
+      localStorage.removeItem("token");
+      window.location.href = "login.html";
+      return;
+    }
+
+    // Token válido, usuário pode acessar a página
+    console.log("Usuário autenticado!");
+    // Aqui você pode carregar os dados do usuário no frontend se necessário
+  } catch (error) {
+    console.error("Erro ao decodificar o token:", error);
+    // Se o token estiver corrompido ou inválido, redireciona para o login
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+  }
+
+  // Botão de logout
+  const logoutButton = document.getElementById("btnLogout");
+
+  // Adicionando evento de clique
+  logoutButton.addEventListener("click", () => {
+    // Limpar os dados do usuário e o token do localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    // Redirecionar para a página de login
+    window.location.href = "login.html";
+  });
+
   const postsListAdmin = document.getElementById("postsListAdmin");
 
   // Função para criar o conteúdo do post

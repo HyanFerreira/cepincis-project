@@ -12,8 +12,15 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Definindo as opções do CORS
+const corsOptions = {
+  origin: process.env.ORIGIN_DOMAIN, // Domínio frontend
+  methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+  allowedHeaders: ["Content-Type", "Authorization"] // Cabeçalhos permitidos
+};
+
 // Middlewares
-app.use(cors());
+app.use(cors(corsOptions)); // Usando as opções de CORS
 app.use(express.json());
 
 app.get("/", (_, res) => {
