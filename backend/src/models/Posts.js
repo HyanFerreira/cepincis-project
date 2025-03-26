@@ -16,24 +16,24 @@ export const getPostById = async id => {
 
 // Função para criar uma nova postagem
 export const createPost = async post => {
-  const { titulo, descricao, conteudo, data_publicacao } = post;
+  const { titulo, descricao, conteudo, tags, data_publicacao } = post;
   const [
     result
   ] = await connection.execute(
-    "INSERT INTO postagens (titulo, descricao, conteudo, data_publicacao) VALUES (?, ?, ?, ?)",
-    [titulo, descricao, conteudo, data_publicacao]
+    "INSERT INTO postagens (titulo, descricao, conteudo, tags, data_publicacao) VALUES (?, ?, ?, ?, ?)",
+    [titulo, descricao, conteudo, tags, data_publicacao]
   );
   return result.insertId; // Retorna o ID da nova postagem inserida
 };
 
 // Função para atualizar uma postagem
 export const updatePost = async (id, post) => {
-  const { titulo, descricao, conteudo } = post;
+  const { titulo, descricao, conteudo, tags } = post;
   const [
     result
   ] = await connection.execute(
-    "UPDATE postagens SET titulo = ?, descricao = ?, conteudo = ? WHERE id = ?",
-    [titulo, descricao, conteudo, id]
+    "UPDATE postagens SET titulo = ?, descricao = ?, conteudo = ?, tags = ? WHERE id = ?",
+    [titulo, descricao, conteudo, tags, id]
   );
   return result.affectedRows > 0 ? { id, titulo, descricao, conteudo } : null; // Retorna a postagem atualizada, ou null se não encontrada
 };
