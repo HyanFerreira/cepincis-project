@@ -19,7 +19,14 @@
     <main class="page page--home">
         <div class="container">
             <div class="content text--dark">
-                <h1 class="f--22">Últimas Notícias</h1>
+                <div class="title__search flex--between">
+                    <h1 class="f--22">Últimas Notícias</h1>
+                    <div class="block__search">
+                        <button class="btn__clearSearch" id="clearSearchBtn"><ion-icon class="ion-icon f--20"
+                                name="close-outline"></ion-icon></button>
+                        <input type="text" class="search__bar" id="searchBar" placeholder="Pesquisar..." />
+                    </div>
+                </div>
                 <div class="posts_list" id="postsList"></div>
             </div>
         </div>
@@ -27,8 +34,8 @@
 
     <div id="footer"></div>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./assets/js/api.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/components.js"></script>

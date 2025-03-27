@@ -124,6 +124,34 @@ p {
     gap: 6px;
 }
 
+.block__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn__clearSearch {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.search__bar {
+    width: 250px;
+    padding: 6px 10px;
+    border: 2px solid var(--color-dark);
+    border-radius: 5px;
+    transition: ease-in-out .3s;
+}
+
 /* Navbar */
 
 .navbar__brand {
@@ -392,7 +420,7 @@ p {
 
 .posts__ListAdmin {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 30px;
 }
 

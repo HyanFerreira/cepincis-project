@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     postElement.classList.add("posts__item");
 
     // Convertendo a data para o formato brasileiro
-    const dataPublicacao = new Date(post.data_publicacao).toLocaleDateString(
-      "pt-BR"
-    );
+    const dataPublicacao = new Date(
+      post.data_publicacao + "T00:00:00"
+    ).toLocaleDateString("pt-BR");
 
     // Convertendo as tags em uma lista
     const tagsList = post.tags
@@ -106,7 +106,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
           const response = await fetch(
             `${API_URL}/api/posts/delete-post/${postId}`,
-            { method: "DELETE" }
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+              }
+            }
           );
           if (response.ok) {
             alert("Postagem excluída com sucesso!");
@@ -177,7 +182,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             `${API_URL}/api/posts/update-post/${post.id}`,
             {
               method: "PUT",
-              headers: { "Content-Type": "application/json" },
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+              },
               body: JSON.stringify(updatedPost)
             }
           );
@@ -221,6 +229,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Buscar postagens e exibir na página
   const posts = await getPosts();
+
+  posts.reverse();
+
   posts.forEach(post => {
     const postElement = createPostElement(post);
     postsListAdmin.appendChild(postElement);
@@ -271,7 +282,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       try {
         const response = await fetch(`${API_URL}/api/posts/create-post`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          },
           body: JSON.stringify(newPost)
         });
 
